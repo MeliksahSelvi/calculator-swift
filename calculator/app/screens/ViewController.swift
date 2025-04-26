@@ -205,14 +205,4 @@ class ViewController: UIViewController,CalculatorButtonDelegate{
         commaButton.widthAnchor.constraint(equalTo:stack.widthAnchor,multiplier: 0.25).isActive = true
         equalButton.widthAnchor.constraint(equalTo:stack.widthAnchor,multiplier: 0.25).isActive = true
     }
-    
-    private func buildMainConstraints() -> [NSLayoutConstraint]{
-        var constraints = [NSLayoutConstraint]()
-
-        constraints.append(mainStack.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 16))
-        constraints.append(mainStack.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -16))
-        constraints.append(mainStack.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant: -30))
-        return constraints;
-    }
-
 }
