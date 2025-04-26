@@ -40,10 +40,4 @@ enum CalculatorButtonType: String{
             return self.rawValue
         }
     }
-    
-    /*
-    static func numberActions() -> [CalculatorButtonType] {
-        return [.ZERO, .ONE, .TWO, .THREE, .FOUR, .FIVE, .SIX, .SEVEN, .EIGHT, .NINE]
-    }
-     */
 }
