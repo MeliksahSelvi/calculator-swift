@@ -146,7 +146,7 @@ extension ViewController {
         return "0"
     }
     
-    func formatDecimalString(value: String) -> String {
+    private func formatDecimalString(value: String) -> String {
         guard let decimal = Decimal(string: value) else {
             return value
         }
