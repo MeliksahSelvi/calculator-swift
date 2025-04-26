@@ -110,7 +110,10 @@ extension ViewController {
                 if currentAction == CalculatorButtonType.MULTIPLY.symbol {
                     result = left * right
                 } else {
-                    if right == 0 { return "0"}
+                    if right == 0 {
+                        self.showZeroDividerAlert()
+                        return "0"
+                    }
                     result = left / right
                 }
                 workingActions.replaceSubrange(index-1...index+1, with: [String(describing: result)])

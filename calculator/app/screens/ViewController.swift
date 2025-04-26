@@ -205,4 +205,12 @@ class ViewController: UIViewController,CalculatorButtonDelegate{
         commaButton.widthAnchor.constraint(equalTo:stack.widthAnchor,multiplier: 0.25).isActive = true
         equalButton.widthAnchor.constraint(equalTo:stack.widthAnchor,multiplier: 0.25).isActive = true
     }
+    
+    func showZeroDividerAlert() {
+        let alert = UIAlertController(title: "Warning", message: "Divider cannot be zero", preferredStyle: .alert)
+            
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            
+        present(alert, animated: true, completion: nil)
+    }
 }
