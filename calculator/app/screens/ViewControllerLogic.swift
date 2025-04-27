@@ -4,15 +4,22 @@ extension ViewController {
     
     func calculatorButtonTapped(calculatorButtonType : CalculatorButtonType) {
         switch calculatorButtonType {
+        
+        case .ZERO:
+            guard let lastElement = actions.last, lastElement != calculatorButtonType.symbol else {
+                break
+            }
+        
+            actions.append(calculatorButtonType.symbol);
+            resultLabel.text = self.mapActionsWithDot(actions: self.actions)
             
-        case .ZERO, .ONE, .TWO, .THREE, .FOUR, .FIVE, .SIX, .SEVEN, .EIGHT, .NINE,.COMMA:
+        case .ONE, .TWO, .THREE, .FOUR, .FIVE, .SIX, .SEVEN, .EIGHT, .NINE, .COMMA:
             actions.append(calculatorButtonType.symbol);
             resultLabel.text = self.mapActionsWithDot(actions: self.actions)
             
         case .PLUS, .MINUS, .MULTIPLY, .DIVIDE :
-            let lastElement :String? = actions.last;
-            if(lastElement == nil || (lastElement != nil && self.isOperator(action: lastElement!))){
-                break;
+            guard let lastElement = actions.last , !self.isOperator(action: lastElement) else {
+                break
             }
             actions.append(calculatorButtonType.symbol);
             resultLabel.text = self.mapActionsWithDot(actions: self.actions)

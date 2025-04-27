@@ -22,10 +22,23 @@ class ViewController: UIViewController,CalculatorButtonDelegate{
         buildFifthLineStack()
     }
     
-    private func buildMainStack(){
+    
+    
+    func showZeroDividerAlert() {
+        let alert = UIAlertController(title: "Warning", message: "Divider cannot be zero", preferredStyle: .alert)
+            
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            
+        present(alert, animated: true, completion: nil)
+    }
+}
+
+private extension ViewController {
+    
+    func buildMainStack(){
         mainStack.axis = .vertical
         mainStack.alignment = .fill
-        mainStack.distribution = .fillProportionally
+        mainStack.distribution = .fillEqually
         mainStack.backgroundColor = .white
         mainStack.translatesAutoresizingMaskIntoConstraints = false
         mainStack.spacing = 14
@@ -42,7 +55,7 @@ class ViewController: UIViewController,CalculatorButtonDelegate{
         NSLayoutConstraint.activate(constraints)
     }
     
-    private func buildResultLabel() {
+    func buildResultLabel() {
        
         resultLabel.textColor = .black
         resultLabel.font = .systemFont(ofSize: 90)
@@ -53,11 +66,11 @@ class ViewController: UIViewController,CalculatorButtonDelegate{
         mainStack.addArrangedSubview(resultLabel)
     }
     
-    private func buildFirstLineStack() {
+    func buildFirstLineStack() {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .horizontal
-        stack.spacing = 14
+        stack.spacing = 16
         stack.alignment = .fill
         stack.distribution = .fillEqually
         
@@ -84,7 +97,7 @@ class ViewController: UIViewController,CalculatorButtonDelegate{
         mainStack.addArrangedSubview(stack)
     }
     
-    private func buildSecondLineStack(){
+    func buildSecondLineStack(){
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .horizontal
@@ -115,7 +128,7 @@ class ViewController: UIViewController,CalculatorButtonDelegate{
         mainStack.addArrangedSubview(stack)
     }
     
-    private func buildThirdLineStack(){
+    func buildThirdLineStack(){
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .horizontal
@@ -146,7 +159,7 @@ class ViewController: UIViewController,CalculatorButtonDelegate{
         mainStack.addArrangedSubview(stack)
     }
     
-    private func buildFourthLineStack(){
+    func buildFourthLineStack(){
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .horizontal
@@ -177,7 +190,7 @@ class ViewController: UIViewController,CalculatorButtonDelegate{
         mainStack.addArrangedSubview(stack)
     }
     
-    private func buildFifthLineStack(){
+    func buildFifthLineStack(){
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .horizontal
@@ -201,16 +214,5 @@ class ViewController: UIViewController,CalculatorButtonDelegate{
         stack.addArrangedSubview(equalButton)
         
         mainStack.addArrangedSubview(stack)
-        
-        commaButton.widthAnchor.constraint(equalTo:stack.widthAnchor,multiplier: 0.25).isActive = true
-        equalButton.widthAnchor.constraint(equalTo:stack.widthAnchor,multiplier: 0.25).isActive = true
-    }
-    
-    func showZeroDividerAlert() {
-        let alert = UIAlertController(title: "Warning", message: "Divider cannot be zero", preferredStyle: .alert)
-            
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            
-        present(alert, animated: true, completion: nil)
     }
 }

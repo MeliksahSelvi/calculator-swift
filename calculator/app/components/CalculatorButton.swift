@@ -21,14 +21,8 @@ class CalculatorButton : UIButton {
     }
     
     private func setup(){
-        self.layer.cornerRadius = 35
+        self.layer.cornerRadius = 32
         self.setTitleColor(.white, for: .normal)
-        NSLayoutConstraint.activate(
-            [
-                self.widthAnchor.constraint(equalToConstant: 88),
-                self.heightAnchor.constraint(equalToConstant: 88)
-            ]
-        )
         self.addTarget(self, action: #selector(handleTap),for: .touchUpInside)
     }
     
@@ -45,6 +39,14 @@ class CalculatorButton : UIButton {
         self.titleEdgeInsets = titleEdgeInsets
         self.calculatorButtonType = calculatorButtonType
         self.addTarget(self , action: #selector(handleTap), for: .touchUpInside)
+        
+        if(calculatorButtonType != .ZERO){
+            NSLayoutConstraint.activate(
+                [
+                    .init(item: self, attribute: .height, relatedBy: .equal, toItem: self, attribute: .width, multiplier: 1, constant: 0)
+                ]
+            )
+        }
     }
     
     @objc private func handleTap() {
