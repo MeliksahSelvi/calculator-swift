@@ -1,6 +1,7 @@
 # 🧮 Calculator App
 
 Swift ile geliştirilen bu **Calculator** (Hesap Makinesi) uygulaması, tamamen **programmatic UIKit** kullanılarak tasarlanmıştır. Kullanıcı arayüzü AutoLayout ile oluşturulmuş ve temel dört işlem desteği sunmaktadır.
+Bu proje, [ICommunity](https://github.com/icommunitycomtr) bootcamp müfredatı çerçevesinde oluşturulmuştur.
 
 ## 🚀 Özellikler
 
